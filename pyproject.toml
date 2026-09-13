@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling>=1.31"]
+build-backend = "hatchling.build"
+
+[project]
+name = "LC-MCP-eduagent_tayra"
+dynamic = ["version"]
+description = 'A LangChain-MCP powered app for education.'
+readme = "README.md"
+requires-python = ">=3.13"
+license = "AGPL-3.0-or-later"
+keywords = [
+  "MCP",
+  "LangChain",
+]
+authors = [
+  { name = "Tayra Sakurai", email = "tayra_sakurai@icloud.com" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = [
+  "langchain>=1.4",
+  "langchain-google-genai>=4.4",
+  "langchain-openai>=1.6",
+  "mcp>=1.30",
+  "langchain-mcp-adapters>=0.3.2",
+  "numpy>=2.3",
+]
+
+[project.urls]
+Documentation = "https://github.com/Tayra-Sakurai/lc-mcp-eduagent-tayra#readme"
+Issues = "https://github.com/Tayra-Sakurai/lc-mcp-eduagent-tayra/issues"
+Source = "https://github.com/Tayra-Sakurai/lc-mcp-eduagent-tayra"
+
+[tool.hatch.version]
+path = "src/lc_mcp_eduagent_tayra/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/lc_mcp_eduagent_tayra tests}"
+[tool.hatch.envs.dev]
+extra-dependencies = [
+  "Sphinx>=9.1",
+  "numpydoc>=1.10",
+]
+
+[tool.coverage.run]
+source_pkgs = ["lc_mcp_eduagent_tayra", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/lc_mcp_eduagent_tayra/__about__.py",
+]
+
+[tool.coverage.paths]
+lc_mcp_eduagent_tayra = ["src/lc_mcp_eduagent_tayra", "*/lc-mcp-eduagent-tayra/src/lc_mcp_eduagent_tayra"]
+tests = ["tests", "*/lc-mcp-eduagent-tayra/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
