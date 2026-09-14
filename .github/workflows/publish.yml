@@ -10,7 +10,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    env:
+    environment:
       name: pypi
       url: https://pypi.org/p/LC-MCP-eduagent_tayra
     steps:
