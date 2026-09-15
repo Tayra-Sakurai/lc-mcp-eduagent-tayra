@@ -54,6 +54,7 @@ dev = [
   "pytest>=9",
   "Sphinx>=9.1",
   "numpydoc>=1.10",
+  "pydata_sphinx_theme>=0.21",
 ]
 
 [project.urls]
@@ -74,6 +75,7 @@ check = "mypy --install-types --non-interactive {args:src/lc_mcp_eduagent_tayra 
 extra-dependencies = [
   "Sphinx>=9.1",
   "numpydoc>=1.10",
+  "pydata_sphinx_theme>=0.21",
 ]
 
 [tool.coverage.run]
